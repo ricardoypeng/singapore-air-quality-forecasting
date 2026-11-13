@@ -1,0 +1,24 @@
+# Python virtual environment (each person creates their own)
+.venv/
+
+# Generated data (rebuild with: python -m src.data)
+data/processed/
+
+# Trained model and large prediction file (rebuild with: python -m src.train)
+models/
+results/test_predictions.csv
+
+# Python cache files
+__pycache__/
+*.pyc
+
+# Jupyter autosave
+.ipynb_checkpoints/
+
+# macOS
+.DS_Store
+
+# Local AI assistant files (kept out of the repo, per README)
+CLAUDE.md
+AGENTS.md
+.claude/

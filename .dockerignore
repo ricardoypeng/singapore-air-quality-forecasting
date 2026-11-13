@@ -1,0 +1,8 @@
+.venv/
+.git/
+__pycache__/
+data/processed/
+models/
+results/
+reports/
+notebooks/

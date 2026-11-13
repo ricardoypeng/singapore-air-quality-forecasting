@@ -1,0 +1,53 @@
+{
+  "best_model": "hist_gradient_boosting",
+  "best_params": {
+    "l2_regularization": 1.0,
+    "learning_rate": 0.1,
+    "log_target": false,
+    "max_iter": 300,
+    "max_leaf_nodes": 15
+  },
+  "region": "east",
+  "window_hours": 24,
+  "horizons": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6
+  ],
+  "split": {
+    "train_end": "2022-12-31 23:00",
+    "val_end": "2023-12-31 23:00"
+  },
+  "validation_rmse_mean": {
+    "hist_gradient_boosting": 6.4473,
+    "persistence": 7.4158,
+    "random_forest": 6.5196,
+    "ridge": 6.4779,
+    "seasonal_naive": 9.9253
+  },
+  "test_rmse_mean": {
+    "hist_gradient_boosting": 5.6273,
+    "persistence": 6.5053,
+    "random_forest": 5.6153,
+    "ridge": 5.6496,
+    "seasonal_naive": 9.2797
+  },
+  "test_mae_mean": {
+    "hist_gradient_boosting": 4.0071,
+    "persistence": 4.626,
+    "random_forest": 4.0178,
+    "ridge": 4.0192,
+    "seasonal_naive": 6.3019
+  },
+  "predict_ms_per_row": {
+    "persistence": 0.0,
+    "seasonal_naive": 0.0,
+    "ridge": 0.0001,
+    "random_forest": 0.0012,
+    "hist_gradient_boosting": 0.0052
+  },
+  "quick_run": false
+}
