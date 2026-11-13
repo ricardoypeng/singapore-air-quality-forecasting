@@ -1,0 +1,30 @@
+# Local archives, experiment outputs and process files
+/tmp/
+
+# Local prepared datasets (raw source CSV remains versioned)
+/data/processed_weather_2024
+
+# Python and notebook caches
+__pycache__/
+*.py[cod]
+.ipynb_checkpoints/
+.venv/
+
+# Local assistant configuration
+AGENTS.md
+CLAUDE.md
+.claude/
+
+# Local documents, archives and OS metadata
+*.pdf
+*.zip
+.DS_Store
+
+# Generated artifacts: rebuild from versioned raw observations
+/results/
+*.pkl
+*.npz
+*.joblib
+
+# Machine-local editor environment selection
+/.vscode/

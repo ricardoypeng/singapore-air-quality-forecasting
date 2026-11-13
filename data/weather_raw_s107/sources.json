@@ -1,0 +1,1009 @@
+{
+  "station": "S107",
+  "years": [
+    2017,
+    2024
+  ],
+  "files": {
+    "wind_speed_2017_S107.csv.gz": {
+      "variable": "wind_speed",
+      "year": 2017,
+      "dataset_id": "d_bd8da65d5c75138c02ee26a93b944c19",
+      "source": "https://data.gov.sg/datasets/d_bd8da65d5c75138c02ee26a93b944c19/view",
+      "filter": {
+        "columnNames": [
+          "timestamp",
+          "station_id",
+          "reading_value",
+          "reading_unit",
+          "reading_update_timestamp"
+        ],
+        "filters": [
+          {
+            "columnName": "station_id",
+            "type": "EQ",
+            "value": "S107"
+          }
+        ]
+      },
+      "uncompressed_bytes": 32485667,
+      "compressed_bytes": 3664041,
+      "sha256": "9068daad12c4e354beeaf5f2762af35d75f6a4bf55cdb7d58261e5fcba78436c"
+    },
+    "wind_speed_2018_S107.csv.gz": {
+      "variable": "wind_speed",
+      "year": 2018,
+      "dataset_id": "d_fc178195f22643b2bcb387e242466c7f",
+      "source": "https://data.gov.sg/datasets/d_fc178195f22643b2bcb387e242466c7f/view",
+      "filter": {
+        "columnNames": [
+          "timestamp",
+          "station_id",
+          "reading_value",
+          "reading_unit",
+          "reading_update_timestamp"
+        ],
+        "filters": [
+          {
+            "columnName": "station_id",
+            "type": "EQ",
+            "value": "S107"
+          }
+        ]
+      },
+      "uncompressed_bytes": 32295071,
+      "compressed_bytes": 3514881,
+      "sha256": "1262eb77f387b0840b5295b072bf0d67cdde79c50eb5fd4b3214ed28676095e4"
+    },
+    "wind_speed_2019_S107.csv.gz": {
+      "variable": "wind_speed",
+      "year": 2019,
+      "dataset_id": "d_e35b3c9f4f191e4735767972f7c7b3cb",
+      "source": "https://data.gov.sg/datasets/d_e35b3c9f4f191e4735767972f7c7b3cb/view",
+      "filter": {
+        "columnNames": [
+          "timestamp",
+          "station_id",
+          "reading_value",
+          "reading_unit",
+          "reading_update_timestamp"
+        ],
+        "filters": [
+          {
+            "columnName": "station_id",
+            "type": "EQ",
+            "value": "S107"
+          }
+        ]
+      },
+      "uncompressed_bytes": 31862698,
+      "compressed_bytes": 3449115,
+      "sha256": "4e1a8020f604b8aff833a6f62edef197d94a9ad14387b0e7c4b6632b4364b5b1"
+    },
+    "wind_speed_2020_S107.csv.gz": {
+      "variable": "wind_speed",
+      "year": 2020,
+      "dataset_id": "d_139acceccddabe1ffcda1d5a59a5b0b8",
+      "source": "https://data.gov.sg/datasets/d_139acceccddabe1ffcda1d5a59a5b0b8/view",
+      "filter": {
+        "columnNames": [
+          "timestamp",
+          "station_id",
+          "reading_value",
+          "reading_unit",
+          "reading_update_timestamp"
+        ],
+        "filters": [
+          {
+            "columnName": "station_id",
+            "type": "EQ",
+            "value": "S107"
+          }
+        ]
+      },
+      "uncompressed_bytes": 34214073,
+      "compressed_bytes": 3687314,
+      "sha256": "13cb9435610bdc52a5b8f0eecdd440dacbdf8655286627d12444d082efc78c2e"
+    },
+    "wind_speed_2021_S107.csv.gz": {
+      "variable": "wind_speed",
+      "year": 2021,
+      "dataset_id": "d_50a5a13a8dc7cb8e3816f30433012f1f",
+      "source": "https://data.gov.sg/datasets/d_50a5a13a8dc7cb8e3816f30433012f1f/view",
+      "filter": {
+        "columnNames": [
+          "timestamp",
+          "station_id",
+          "reading_value",
+          "reading_unit",
+          "reading_update_timestamp"
+        ],
+        "filters": [
+          {
+            "columnName": "station_id",
+            "type": "EQ",
+            "value": "S107"
+          }
+        ]
+      },
+      "uncompressed_bytes": 33331279,
+      "compressed_bytes": 3510933,
+      "sha256": "dc07dd93d6e180fc37287011e4966b303db55bc90867912d659b41bbe1f594cc"
+    },
+    "wind_speed_2022_S107.csv.gz": {
+      "variable": "wind_speed",
+      "year": 2022,
+      "dataset_id": "d_9ef0ce25fbeba52d3e5e23487d3f40fc",
+      "source": "https://data.gov.sg/datasets/d_9ef0ce25fbeba52d3e5e23487d3f40fc/view",
+      "filter": {
+        "columnNames": [
+          "timestamp",
+          "station_id",
+          "reading_value",
+          "reading_unit",
+          "reading_update_timestamp"
+        ],
+        "filters": [
+          {
+            "columnName": "station_id",
+            "type": "EQ",
+            "value": "S107"
+          }
+        ]
+      },
+      "uncompressed_bytes": 32749636,
+      "compressed_bytes": 3436371,
+      "sha256": "03581a8f06a393d4c8518d29e7af91db8d620f31e2e83f4a62d784d7958ed1e8"
+    },
+    "wind_speed_2023_S107.csv.gz": {
+      "variable": "wind_speed",
+      "year": 2023,
+      "dataset_id": "d_de9a32cc338823ee9d58c3b7576fa267",
+      "source": "https://data.gov.sg/datasets/d_de9a32cc338823ee9d58c3b7576fa267/view",
+      "filter": {
+        "columnNames": [
+          "timestamp",
+          "station_id",
+          "reading_value",
+          "reading_unit",
+          "reading_update_timestamp"
+        ],
+        "filters": [
+          {
+            "columnName": "station_id",
+            "type": "EQ",
+            "value": "S107"
+          }
+        ]
+      },
+      "uncompressed_bytes": 33401881,
+      "compressed_bytes": 3513437,
+      "sha256": "ebad1676daddbe3141f06cbb00831222db238d202c6a6aaa18af70edda7d253b"
+    },
+    "wind_speed_2024_S107.csv.gz": {
+      "variable": "wind_speed",
+      "year": 2024,
+      "dataset_id": "d_33f6c1091f73c1451c3aedc4f0061c9c",
+      "source": "https://data.gov.sg/datasets/d_33f6c1091f73c1451c3aedc4f0061c9c/view",
+      "filter": {
+        "columnNames": [
+          "timestamp",
+          "station_id",
+          "reading_value",
+          "reading_unit",
+          "reading_update_timestamp"
+        ],
+        "filters": [
+          {
+            "columnName": "station_id",
+            "type": "EQ",
+            "value": "S107"
+          }
+        ]
+      },
+      "uncompressed_bytes": 33619440,
+      "compressed_bytes": 3529462,
+      "sha256": "70b75fe5d1e5ad50a552d09aaf30c249ed8fd16f3da6c65f3c04a0ce2d3afc3a"
+    },
+    "wind_direction_2017_S107.csv.gz": {
+      "variable": "wind_direction",
+      "year": 2017,
+      "dataset_id": "d_4bd9b57adc22a7d604ce46cead6dece4",
+      "source": "https://data.gov.sg/datasets/d_4bd9b57adc22a7d604ce46cead6dece4/view",
+      "filter": {
+        "columnNames": [
+          "timestamp",
+          "station_id",
+          "reading_value",
+          "reading_unit",
+          "reading_update_timestamp"
+        ],
+        "filters": [
+          {
+            "columnName": "station_id",
+            "type": "EQ",
+            "value": "S107"
+          }
+        ]
+      },
+      "uncompressed_bytes": 32546027,
+      "compressed_bytes": 3546842,
+      "sha256": "539411f356b01bcc5ec493c2ade75b3ac5db43a797ba49101ff00c5ea9447310"
+    },
+    "wind_direction_2018_S107.csv.gz": {
+      "variable": "wind_direction",
+      "year": 2018,
+      "dataset_id": "d_e395e01b91907832fecf78dc4a8039d2",
+      "source": "https://data.gov.sg/datasets/d_e395e01b91907832fecf78dc4a8039d2/view",
+      "filter": {
+        "columnNames": [
+          "timestamp",
+          "station_id",
+          "reading_value",
+          "reading_unit",
+          "reading_update_timestamp"
+        ],
+        "filters": [
+          {
+            "columnName": "station_id",
+            "type": "EQ",
+            "value": "S107"
+          }
+        ]
+      },
+      "uncompressed_bytes": 33605635,
+      "compressed_bytes": 3444333,
+      "sha256": "58f8fee0c535c9c681203114510dd30aca2cec4e328a4f809c5111ad08ff526b"
+    },
+    "wind_direction_2019_S107.csv.gz": {
+      "variable": "wind_direction",
+      "year": 2019,
+      "dataset_id": "d_8cf41a4413991a19ce9bcb4d6f5aa121",
+      "source": "https://data.gov.sg/datasets/d_8cf41a4413991a19ce9bcb4d6f5aa121/view",
+      "filter": {
+        "columnNames": [
+          "timestamp",
+          "station_id",
+          "reading_value",
+          "reading_unit",
+          "reading_update_timestamp"
+        ],
+        "filters": [
+          {
+            "columnName": "station_id",
+            "type": "EQ",
+            "value": "S107"
+          }
+        ]
+      },
+      "uncompressed_bytes": 35187514,
+      "compressed_bytes": 3477557,
+      "sha256": "931b80a865f8542611e2d6796fc73e56da8386f994f5c24ea371c508b0ca09a2"
+    },
+    "wind_direction_2020_S107.csv.gz": {
+      "variable": "wind_direction",
+      "year": 2020,
+      "dataset_id": "d_2d6e5c7e8d3c9c8c55771b1514a463ce",
+      "source": "https://data.gov.sg/datasets/d_2d6e5c7e8d3c9c8c55771b1514a463ce/view",
+      "filter": {
+        "columnNames": [
+          "timestamp",
+          "station_id",
+          "reading_value",
+          "reading_unit",
+          "reading_update_timestamp"
+        ],
+        "filters": [
+          {
+            "columnName": "station_id",
+            "type": "EQ",
+            "value": "S107"
+          }
+        ]
+      },
+      "uncompressed_bytes": 35353726,
+      "compressed_bytes": 3607603,
+      "sha256": "37a2647b161cb8a998f612dd3644d0c45e23a14909c625a7506cd0c07ee7a62a"
+    },
+    "wind_direction_2021_S107.csv.gz": {
+      "variable": "wind_direction",
+      "year": 2021,
+      "dataset_id": "d_48db0c70697f48307ab5df8b5c413f92",
+      "source": "https://data.gov.sg/datasets/d_48db0c70697f48307ab5df8b5c413f92/view",
+      "filter": {
+        "columnNames": [
+          "timestamp",
+          "station_id",
+          "reading_value",
+          "reading_unit",
+          "reading_update_timestamp"
+        ],
+        "filters": [
+          {
+            "columnName": "station_id",
+            "type": "EQ",
+            "value": "S107"
+          }
+        ]
+      },
+      "uncompressed_bytes": 34597414,
+      "compressed_bytes": 3483331,
+      "sha256": "448d4e92b58d7efb60c9282aaf371d3d3c9c40e125cc39737dfd4996484166d6"
+    },
+    "wind_direction_2022_S107.csv.gz": {
+      "variable": "wind_direction",
+      "year": 2022,
+      "dataset_id": "d_2fe3393d6ac6859b16f77c4aafcba55d",
+      "source": "https://data.gov.sg/datasets/d_2fe3393d6ac6859b16f77c4aafcba55d/view",
+      "filter": {
+        "columnNames": [
+          "timestamp",
+          "station_id",
+          "reading_value",
+          "reading_unit",
+          "reading_update_timestamp"
+        ],
+        "filters": [
+          {
+            "columnName": "station_id",
+            "type": "EQ",
+            "value": "S107"
+          }
+        ]
+      },
+      "uncompressed_bytes": 34133635,
+      "compressed_bytes": 3454749,
+      "sha256": "9d5034f1a86f21a52f2190a183fdc9163342a95c18a1d443ab5d2acb65028f15"
+    },
+    "wind_direction_2023_S107.csv.gz": {
+      "variable": "wind_direction",
+      "year": 2023,
+      "dataset_id": "d_c9a10c59294e89a8233562435f81b221",
+      "source": "https://data.gov.sg/datasets/d_c9a10c59294e89a8233562435f81b221/view",
+      "filter": {
+        "columnNames": [
+          "timestamp",
+          "station_id",
+          "reading_value",
+          "reading_unit",
+          "reading_update_timestamp"
+        ],
+        "filters": [
+          {
+            "columnName": "station_id",
+            "type": "EQ",
+            "value": "S107"
+          }
+        ]
+      },
+      "uncompressed_bytes": 34769322,
+      "compressed_bytes": 3483777,
+      "sha256": "94108a83c56213456a2d31a8e931d2d0603a5ad14931d302f8425589590d0e66"
+    },
+    "wind_direction_2024_S107.csv.gz": {
+      "variable": "wind_direction",
+      "year": 2024,
+      "dataset_id": "d_c2083cf3e40ddf633b1421ad719067ff",
+      "source": "https://data.gov.sg/datasets/d_c2083cf3e40ddf633b1421ad719067ff/view",
+      "filter": {
+        "columnNames": [
+          "timestamp",
+          "station_id",
+          "reading_value",
+          "reading_unit",
+          "reading_update_timestamp"
+        ],
+        "filters": [
+          {
+            "columnName": "station_id",
+            "type": "EQ",
+            "value": "S107"
+          }
+        ]
+      },
+      "uncompressed_bytes": 34981021,
+      "compressed_bytes": 3486318,
+      "sha256": "7cedf60e83b05ba96faec47a5980174d140aef3532d5901f8f597d7aeaeef7b7"
+    },
+    "rainfall_2017_S107.csv.gz": {
+      "variable": "rainfall",
+      "year": 2017,
+      "dataset_id": "d_1990a5a1aeaf3dd243cf4dae294a61c4",
+      "source": "https://data.gov.sg/datasets/d_1990a5a1aeaf3dd243cf4dae294a61c4/view",
+      "filter": {
+        "columnNames": [
+          "timestamp",
+          "station_id",
+          "reading_value",
+          "reading_unit",
+          "reading_update_timestamp"
+        ],
+        "filters": [
+          {
+            "columnName": "station_id",
+            "type": "EQ",
+            "value": "S107"
+          }
+        ]
+      },
+      "uncompressed_bytes": 6313106,
+      "compressed_bytes": 720299,
+      "sha256": "fa302a961a29cc35966830f0ef13c810e98ff175ea494b6cd7a90e697b96f8b8"
+    },
+    "rainfall_2018_S107.csv.gz": {
+      "variable": "rainfall",
+      "year": 2018,
+      "dataset_id": "d_024fb501ce7092b71bb713eaf54fa7eb",
+      "source": "https://data.gov.sg/datasets/d_024fb501ce7092b71bb713eaf54fa7eb/view",
+      "filter": {
+        "columnNames": [
+          "timestamp",
+          "station_id",
+          "reading_value",
+          "reading_unit",
+          "reading_update_timestamp"
+        ],
+        "filters": [
+          {
+            "columnName": "station_id",
+            "type": "EQ",
+            "value": "S107"
+          }
+        ]
+      },
+      "uncompressed_bytes": 5509709,
+      "compressed_bytes": 625592,
+      "sha256": "cecdd0de6e0b43e1462fd8070f6442d0ec812fda4f737b5b555c34aa291711d8"
+    },
+    "rainfall_2019_S107.csv.gz": {
+      "variable": "rainfall",
+      "year": 2019,
+      "dataset_id": "d_61995f092320e7155b7528050880b502",
+      "source": "https://data.gov.sg/datasets/d_61995f092320e7155b7528050880b502/view",
+      "filter": {
+        "columnNames": [
+          "timestamp",
+          "station_id",
+          "reading_value",
+          "reading_unit",
+          "reading_update_timestamp"
+        ],
+        "filters": [
+          {
+            "columnName": "station_id",
+            "type": "EQ",
+            "value": "S107"
+          }
+        ]
+      },
+      "uncompressed_bytes": 6381641,
+      "compressed_bytes": 738924,
+      "sha256": "ec2f025131f85cb900485964d4852bab1bc80d915159682e7a03a6f832e9fd54"
+    },
+    "rainfall_2020_S107.csv.gz": {
+      "variable": "rainfall",
+      "year": 2020,
+      "dataset_id": "d_9e7de44094f876f6804b8b5bcee45c81",
+      "source": "https://data.gov.sg/datasets/d_9e7de44094f876f6804b8b5bcee45c81/view",
+      "filter": {
+        "columnNames": [
+          "timestamp",
+          "station_id",
+          "reading_value",
+          "reading_unit",
+          "reading_update_timestamp"
+        ],
+        "filters": [
+          {
+            "columnName": "station_id",
+            "type": "EQ",
+            "value": "S107"
+          }
+        ]
+      },
+      "uncompressed_bytes": 6317400,
+      "compressed_bytes": 747022,
+      "sha256": "8cc34872616452129bed4aabee5333084f1b8c36ff5202f116e243611fb19274"
+    },
+    "rainfall_2021_S107.csv.gz": {
+      "variable": "rainfall",
+      "year": 2021,
+      "dataset_id": "d_3b41598f74f1f11fc3430348fea51af5",
+      "source": "https://data.gov.sg/datasets/d_3b41598f74f1f11fc3430348fea51af5/view",
+      "filter": {
+        "columnNames": [
+          "timestamp",
+          "station_id",
+          "reading_value",
+          "reading_unit",
+          "reading_update_timestamp"
+        ],
+        "filters": [
+          {
+            "columnName": "station_id",
+            "type": "EQ",
+            "value": "S107"
+          }
+        ]
+      },
+      "uncompressed_bytes": 6590926,
+      "compressed_bytes": 751217,
+      "sha256": "8ebe07a0860c718a7a8f902efd3584b5d594d1e4e553b2038c28ee75703a06ed"
+    },
+    "rainfall_2022_S107.csv.gz": {
+      "variable": "rainfall",
+      "year": 2022,
+      "dataset_id": "d_42d64cc6c176ace1c52fbb40b9ede302",
+      "source": "https://data.gov.sg/datasets/d_42d64cc6c176ace1c52fbb40b9ede302/view",
+      "filter": {
+        "columnNames": [
+          "timestamp",
+          "station_id",
+          "reading_value",
+          "reading_unit",
+          "reading_update_timestamp"
+        ],
+        "filters": [
+          {
+            "columnName": "station_id",
+            "type": "EQ",
+            "value": "S107"
+          }
+        ]
+      },
+      "uncompressed_bytes": 6703754,
+      "compressed_bytes": 761376,
+      "sha256": "913ded2f090629d2ed0c5351a379c9b39436a852ac6da2dde44f5c103d4f52fd"
+    },
+    "rainfall_2023_S107.csv.gz": {
+      "variable": "rainfall",
+      "year": 2023,
+      "dataset_id": "d_f864cc30d58b467db83659ad17c737bf",
+      "source": "https://data.gov.sg/datasets/d_f864cc30d58b467db83659ad17c737bf/view",
+      "filter": {
+        "columnNames": [
+          "timestamp",
+          "station_id",
+          "reading_value",
+          "reading_unit",
+          "reading_update_timestamp"
+        ],
+        "filters": [
+          {
+            "columnName": "station_id",
+            "type": "EQ",
+            "value": "S107"
+          }
+        ]
+      },
+      "uncompressed_bytes": 6503757,
+      "compressed_bytes": 736440,
+      "sha256": "4cae07128b5057a32009bdea69c35088002661ab5a6912ec8bda93cf5c80e65e"
+    },
+    "rainfall_2024_S107.csv.gz": {
+      "variable": "rainfall",
+      "year": 2024,
+      "dataset_id": "d_a0b69d3e02576a1fd0ab673e71f83507",
+      "source": "https://data.gov.sg/datasets/d_a0b69d3e02576a1fd0ab673e71f83507/view",
+      "filter": {
+        "columnNames": [
+          "timestamp",
+          "station_id",
+          "reading_value",
+          "reading_unit",
+          "reading_update_timestamp"
+        ],
+        "filters": [
+          {
+            "columnName": "station_id",
+            "type": "EQ",
+            "value": "S107"
+          }
+        ]
+      },
+      "uncompressed_bytes": 6530514,
+      "compressed_bytes": 719476,
+      "sha256": "0b1989fd8f3b82da42f7ea994fb04b059530f9b2b504e90fa8f6bf752ae6904e"
+    },
+    "temperature_2017_S107.csv.gz": {
+      "variable": "temperature",
+      "year": 2017,
+      "dataset_id": "d_320fc57e7871bd0cd7a713f0f6f2f89e",
+      "source": "https://data.gov.sg/datasets/d_320fc57e7871bd0cd7a713f0f6f2f89e/view",
+      "filter": {
+        "columnNames": [
+          "timestamp",
+          "station_id",
+          "reading_value",
+          "reading_unit",
+          "reading_update_timestamp"
+        ],
+        "filters": [
+          {
+            "columnName": "station_id",
+            "type": "EQ",
+            "value": "S107"
+          }
+        ]
+      },
+      "uncompressed_bytes": 32681485,
+      "compressed_bytes": 2795175,
+      "sha256": "75b85586de376c2e0052cfcd6e5e968002a85958f5308df2cb769063c2423a4d"
+    },
+    "temperature_2018_S107.csv.gz": {
+      "variable": "temperature",
+      "year": 2018,
+      "dataset_id": "d_ef585339f3f57862d6cf13edd5a628c1",
+      "source": "https://data.gov.sg/datasets/d_ef585339f3f57862d6cf13edd5a628c1/view",
+      "filter": {
+        "columnNames": [
+          "timestamp",
+          "station_id",
+          "reading_value",
+          "reading_unit",
+          "reading_update_timestamp"
+        ],
+        "filters": [
+          {
+            "columnName": "station_id",
+            "type": "EQ",
+            "value": "S107"
+          }
+        ]
+      },
+      "uncompressed_bytes": 31705617,
+      "compressed_bytes": 2708842,
+      "sha256": "ce433228e367faa8e97222c61675b5529e0cd743810974fea7395caff09dda23"
+    },
+    "temperature_2019_S107.csv.gz": {
+      "variable": "temperature",
+      "year": 2019,
+      "dataset_id": "d_6a384c5f4d719f33619563b27091b8fb",
+      "source": "https://data.gov.sg/datasets/d_6a384c5f4d719f33619563b27091b8fb/view",
+      "filter": {
+        "columnNames": [
+          "timestamp",
+          "station_id",
+          "reading_value",
+          "reading_unit",
+          "reading_update_timestamp"
+        ],
+        "filters": [
+          {
+            "columnName": "station_id",
+            "type": "EQ",
+            "value": "S107"
+          }
+        ]
+      },
+      "uncompressed_bytes": 33730657,
+      "compressed_bytes": 2938356,
+      "sha256": "6285e68120854865a1be4d1d39524928074dea62f04d36b316dc0f341f747a9c"
+    },
+    "temperature_2020_S107.csv.gz": {
+      "variable": "temperature",
+      "year": 2020,
+      "dataset_id": "d_10d453bc02d1a41daf6373b96b1929e4",
+      "source": "https://data.gov.sg/datasets/d_10d453bc02d1a41daf6373b96b1929e4/view",
+      "filter": {
+        "columnNames": [
+          "timestamp",
+          "station_id",
+          "reading_value",
+          "reading_unit",
+          "reading_update_timestamp"
+        ],
+        "filters": [
+          {
+            "columnName": "station_id",
+            "type": "EQ",
+            "value": "S107"
+          }
+        ]
+      },
+      "uncompressed_bytes": 34088949,
+      "compressed_bytes": 3081712,
+      "sha256": "1c7c46d469486a7310ddfdb00bfe56c4e5bb966976b3efbbe8c0c69cc8f7c7f1"
+    },
+    "temperature_2021_S107.csv.gz": {
+      "variable": "temperature",
+      "year": 2021,
+      "dataset_id": "d_557fbb859f12a8af29ef4e1375288165",
+      "source": "https://data.gov.sg/datasets/d_557fbb859f12a8af29ef4e1375288165/view",
+      "filter": {
+        "columnNames": [
+          "timestamp",
+          "station_id",
+          "reading_value",
+          "reading_unit",
+          "reading_update_timestamp"
+        ],
+        "filters": [
+          {
+            "columnName": "station_id",
+            "type": "EQ",
+            "value": "S107"
+          }
+        ]
+      },
+      "uncompressed_bytes": 34658313,
+      "compressed_bytes": 3014149,
+      "sha256": "6a71db6bfc788271eb1d08cc24cfd16f8ff9bdb9c57c171d8fdf86ce4aafd056"
+    },
+    "temperature_2022_S107.csv.gz": {
+      "variable": "temperature",
+      "year": 2022,
+      "dataset_id": "d_6fd47a46bd59c5cb70d9561b404d0a64",
+      "source": "https://data.gov.sg/datasets/d_6fd47a46bd59c5cb70d9561b404d0a64/view",
+      "filter": {
+        "columnNames": [
+          "timestamp",
+          "station_id",
+          "reading_value",
+          "reading_unit",
+          "reading_update_timestamp"
+        ],
+        "filters": [
+          {
+            "columnName": "station_id",
+            "type": "EQ",
+            "value": "S107"
+          }
+        ]
+      },
+      "uncompressed_bytes": 35292821,
+      "compressed_bytes": 3127255,
+      "sha256": "c69dc9787fb5f9418bdff1dc241109b4c8109fc91c49879e708c16e9bc2faab9"
+    },
+    "temperature_2023_S107.csv.gz": {
+      "variable": "temperature",
+      "year": 2023,
+      "dataset_id": "d_370bbfc65de96ad93eaefa182135d1c0",
+      "source": "https://data.gov.sg/datasets/d_370bbfc65de96ad93eaefa182135d1c0/view",
+      "filter": {
+        "columnNames": [
+          "timestamp",
+          "station_id",
+          "reading_value",
+          "reading_unit",
+          "reading_update_timestamp"
+        ],
+        "filters": [
+          {
+            "columnName": "station_id",
+            "type": "EQ",
+            "value": "S107"
+          }
+        ]
+      },
+      "uncompressed_bytes": 34411201,
+      "compressed_bytes": 3030902,
+      "sha256": "68b6d0f9331fc186e1b53a3b71208f7ca5ede403328e6bc4e5cd3f0686776516"
+    },
+    "temperature_2024_S107.csv.gz": {
+      "variable": "temperature",
+      "year": 2024,
+      "dataset_id": "d_910c81fce47f38574015b3882ac59254",
+      "source": "https://data.gov.sg/datasets/d_910c81fce47f38574015b3882ac59254/view",
+      "filter": {
+        "columnNames": [
+          "timestamp",
+          "station_id",
+          "reading_value",
+          "reading_unit",
+          "reading_update_timestamp"
+        ],
+        "filters": [
+          {
+            "columnName": "station_id",
+            "type": "EQ",
+            "value": "S107"
+          }
+        ]
+      },
+      "uncompressed_bytes": 33882637,
+      "compressed_bytes": 3001651,
+      "sha256": "c734669e57083cdf85619a39b05689ba301d949f9083126da1c1c0e45a8f9735"
+    },
+    "humidity_2017_S107.csv.gz": {
+      "variable": "humidity",
+      "year": 2017,
+      "dataset_id": "d_0e0e47c0657e4fe3fddae3b9e516ba74",
+      "source": "https://data.gov.sg/datasets/d_0e0e47c0657e4fe3fddae3b9e516ba74/view",
+      "filter": {
+        "columnNames": [
+          "timestamp",
+          "station_id",
+          "reading_value",
+          "reading_unit",
+          "reading_update_timestamp"
+        ],
+        "filters": [
+          {
+            "columnName": "station_id",
+            "type": "EQ",
+            "value": "S107"
+          }
+        ]
+      },
+      "uncompressed_bytes": 34657587,
+      "compressed_bytes": 3625207,
+      "sha256": "f5f4b3ffc9a2e52df4b157567a47af1c0a8a09757bfbec4c3dfbdd54049a12ba"
+    },
+    "humidity_2018_S107.csv.gz": {
+      "variable": "humidity",
+      "year": 2018,
+      "dataset_id": "d_dda4e2961282fe15a2a03209f8c60466",
+      "source": "https://data.gov.sg/datasets/d_dda4e2961282fe15a2a03209f8c60466/view",
+      "filter": {
+        "columnNames": [
+          "timestamp",
+          "station_id",
+          "reading_value",
+          "reading_unit",
+          "reading_update_timestamp"
+        ],
+        "filters": [
+          {
+            "columnName": "station_id",
+            "type": "EQ",
+            "value": "S107"
+          }
+        ]
+      },
+      "uncompressed_bytes": 33007110,
+      "compressed_bytes": 3448551,
+      "sha256": "87a08245cc2d347ef68e72dfd0a5316d3386af827d23fcded5c607c00602af1a"
+    },
+    "humidity_2019_S107.csv.gz": {
+      "variable": "humidity",
+      "year": 2019,
+      "dataset_id": "d_df0a643cabbe0ad9420ce8e2cf0e7ec2",
+      "source": "https://data.gov.sg/datasets/d_df0a643cabbe0ad9420ce8e2cf0e7ec2/view",
+      "filter": {
+        "columnNames": [
+          "timestamp",
+          "station_id",
+          "reading_value",
+          "reading_unit",
+          "reading_update_timestamp"
+        ],
+        "filters": [
+          {
+            "columnName": "station_id",
+            "type": "EQ",
+            "value": "S107"
+          }
+        ]
+      },
+      "uncompressed_bytes": 33725763,
+      "compressed_bytes": 3522599,
+      "sha256": "3a45d901c96e50b2ee746368d5ac91ef8e500d1b81ae103bbccee8f390f9ce6a"
+    },
+    "humidity_2020_S107.csv.gz": {
+      "variable": "humidity",
+      "year": 2020,
+      "dataset_id": "d_15f4385609fa3aa8f5812872586cbb80",
+      "source": "https://data.gov.sg/datasets/d_15f4385609fa3aa8f5812872586cbb80/view",
+      "filter": {
+        "columnNames": [
+          "timestamp",
+          "station_id",
+          "reading_value",
+          "reading_unit",
+          "reading_update_timestamp"
+        ],
+        "filters": [
+          {
+            "columnName": "station_id",
+            "type": "EQ",
+            "value": "S107"
+          }
+        ]
+      },
+      "uncompressed_bytes": 36594316,
+      "compressed_bytes": 3779019,
+      "sha256": "9afd47a3d0a0a9cbb32afd8d1ca6d4e02347d643a1c351284afc3feb18b6aba1"
+    },
+    "humidity_2021_S107.csv.gz": {
+      "variable": "humidity",
+      "year": 2021,
+      "dataset_id": "d_b30e532f095592dfa8fef924c2325b38",
+      "source": "https://data.gov.sg/datasets/d_b30e532f095592dfa8fef924c2325b38/view",
+      "filter": {
+        "columnNames": [
+          "timestamp",
+          "station_id",
+          "reading_value",
+          "reading_unit",
+          "reading_update_timestamp"
+        ],
+        "filters": [
+          {
+            "columnName": "station_id",
+            "type": "EQ",
+            "value": "S107"
+          }
+        ]
+      },
+      "uncompressed_bytes": 37216787,
+      "compressed_bytes": 3796539,
+      "sha256": "972b5b8d881629f29f6e81849721e5df65afb0f58c6fe49d324909e36790ee02"
+    },
+    "humidity_2022_S107.csv.gz": {
+      "variable": "humidity",
+      "year": 2022,
+      "dataset_id": "d_6ecc4ed07e7dcc024c22e548aa1e86f6",
+      "source": "https://data.gov.sg/datasets/d_6ecc4ed07e7dcc024c22e548aa1e86f6/view",
+      "filter": {
+        "columnNames": [
+          "timestamp",
+          "station_id",
+          "reading_value",
+          "reading_unit",
+          "reading_update_timestamp"
+        ],
+        "filters": [
+          {
+            "columnName": "station_id",
+            "type": "EQ",
+            "value": "S107"
+          }
+        ]
+      },
+      "uncompressed_bytes": 37887949,
+      "compressed_bytes": 3813899,
+      "sha256": "3a1b47ccb43752fb8a9dc8c1c2bfcc42213f2f378eb2e07c750f880d296595ca"
+    },
+    "humidity_2023_S107.csv.gz": {
+      "variable": "humidity",
+      "year": 2023,
+      "dataset_id": "d_d6fb7c8f42cacf73af76d17518c39f24",
+      "source": "https://data.gov.sg/datasets/d_d6fb7c8f42cacf73af76d17518c39f24/view",
+      "filter": {
+        "columnNames": [
+          "timestamp",
+          "station_id",
+          "reading_value",
+          "reading_unit",
+          "reading_update_timestamp"
+        ],
+        "filters": [
+          {
+            "columnName": "station_id",
+            "type": "EQ",
+            "value": "S107"
+          }
+        ]
+      },
+      "uncompressed_bytes": 36938949,
+      "compressed_bytes": 3724465,
+      "sha256": "603d8b9ea8ecba4b078b271f22020b6c2545d33ec28941dd55908b4bed9aeb02"
+    },
+    "humidity_2024_S107.csv.gz": {
+      "variable": "humidity",
+      "year": 2024,
+      "dataset_id": "d_7916c4c0cbe0dfaadaeac4b56d732a2a",
+      "source": "https://data.gov.sg/datasets/d_7916c4c0cbe0dfaadaeac4b56d732a2a/view",
+      "filter": {
+        "columnNames": [
+          "timestamp",
+          "station_id",
+          "reading_value",
+          "reading_unit",
+          "reading_update_timestamp"
+        ],
+        "filters": [
+          {
+            "columnName": "station_id",
+            "type": "EQ",
+            "value": "S107"
+          }
+        ]
+      },
+      "uncompressed_bytes": 36373637,
+      "compressed_bytes": 3641866,
+      "sha256": "b335cc355d843e1a7623278ba9f714e34c93efe058b482b3db1122ff7de32534"
+    }
+  }
+}

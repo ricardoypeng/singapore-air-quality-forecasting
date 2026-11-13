@@ -1,41 +1,31 @@
-# Historical Hourly PM2.5 Data for Singapore
+# Raw Data
 
 English | [简体中文](README.zh-CN.md)
 
-## Source and provenance
+## Included sources
 
-- **Data:** [Original CSV](singapore-pm25-hourly-raw.csv), preserved without cleaning, sorting, or modification.
-- **Publisher:** National Environment Agency (NEA), Singapore.
-- **Source:** [Historical 1-hr PM2.5](https://data.gov.sg/datasets/d_6c0d5fc34838b12472475fdb73c0af29/view).
-- **Dataset ID:** `d_6c0d5fc34838b12472475fdb73c0af29`.
-- **Downloaded:** 21 October 2026.
-- **Licence:** [Singapore Open Data Licence](https://data.gov.sg/open-data-licence); attribute the source when using the data.
-- **Download method:** Request the [official download endpoint](https://api-open.data.gov.sg/v1/public/api/datasets/d_6c0d5fc34838b12472475fdb73c0af29/poll-download), then retrieve the CSV from the temporary URL in the response. Request a fresh URL when it expires.
+- [NEA five-region hourly PM2.5 CSV](singapore-pm25-hourly-raw.csv): 109,584 rows, 2014-04-01 01:00 through 2026-10-01 00:00, in Singapore local time. The first column contains timestamps; the other columns are north, south, east, west and central, in µg/m³. The original file is unchanged.
+- [S107 weather provenance](weather_raw_s107/sources.json): 40 files covering five variables and eight years (2017–2024), filtered to East Coast Parkway station S107. Each CSV retains timestamps, station, values, units and publication timestamps, compressed losslessly with gzip. No hourly aggregation or imputation has been applied to these raw files.
+- [SHA256 inventory](raw_sources.json): checksums for the PM CSV and all 40 weather observation files, plus expected window counts.
 
-## Snapshot and schema
+PM source: [NEA Historical 1-hr PM2.5](https://data.gov.sg/datasets/d_6c0d5fc34838b12472475fdb73c0af29/view). Weather source collections: [wind speed](https://data.gov.sg/collections/2280/view), [wind direction](https://data.gov.sg/collections/2281/view), [rainfall](https://data.gov.sg/collections/2279/view), [temperature](https://data.gov.sg/collections/2246/view), [humidity](https://data.gov.sg/collections/2278/view). The weather provenance manifest records per-file dataset IDs, source URLs, station filters, sizes and checksums. Contains NEA data accessed through data.gov.sg under the [Singapore Open Data Licence](https://data.gov.sg/open-data-licence).
 
-- 109,584 data rows and six columns; 3,150,004 bytes.
-- First record: 2014-04-01 01:00. Last record: 2026-10-01 00:00. The source page describes coverage as April 2014 through September 2026.
-- SHA-256: `2fb76e1c4e4208e92f49670602e303c86e21eaa3704651633323e50f51015de4`.
+## Preparation policy
 
-| Column | Meaning |
-| --- | --- |
-| `1hr_pm25` | Timestamp, usually day/month/year hour:minute; this column stores time, not concentration |
-| `north` | Hourly PM2.5 concentration in the North region |
-| `south` | Hourly PM2.5 concentration in the South region |
-| `east` | Hourly PM2.5 concentration in the East region |
-| `west` | Hourly PM2.5 concentration in the West region |
-| `central` | Hourly PM2.5 concentration in the Central region |
+[PM preparation](../source/prepare_data.py) removes an entire calendar date if it has malformed timestamps, missing/duplicate hours or invalid concentrations. It does not repair timestamps, interpolate or fill values. Its temporary split labels are discarded when joining weather.
 
-Concentrations are in µg/m³. These are regional readings, not PSI/AQI values or campus-specific measurements. Timestamp strings do not include timezone offsets; document the timezone convention during preprocessing.
+[Weather preparation](../source/prepare_weather_data.py) uses historical observations in [t−2h,t−1h) for feature time t, requiring publication no later than t. Temperature/humidity require at least 45 unique minutes per hour with no gap over 15 minutes; wind uses equally sufficient paired speed/direction minutes, converts knots to m/s and calculates u/v. Rainfall requires all twelve five-minute bins; one-second acquisition jitter is normalized to the scheduled grid. Missing rain is never treated as zero.
 
-## Initial quality checks
+The requested joint period is 2017–2024. Any date missing one PM or valid weather hour is removed. The 1,753 retained dates are split chronologically at floor(0.8N) and floor(0.9N), giving 1,402/175/176 days. Histories may use known observations before a split boundary, while all six future targets stay in their own split. Windows cannot cross interruptions. There are 25,668/3,331/3,818 legal 24h→6h windows.
 
-All five concentration columns contain finite numeric values, with no empty, non-numeric, or negative entries found. The time axis requires investigation:
+## Rebuild
 
-- CSV line 17,617, counting the header, contains `2016-04-04 010:00:00`. Do not silently interpret it as either 10:00 or 00:00; inspect surrounding records and source evidence first.
-- Excluding that malformed row, 109,583 rows parse using `%d/%m/%Y %H:%M`. There are three extra rows with duplicate timestamps: 2016-03-07 00:00, 2018-04-24 00:00, and 2018-08-16 02:00. Concentrations differ between records at the same time, so these are not identical duplicate rows.
-- Excluding the malformed row, four timestamps are absent from the continuous hourly grid: 2016-03-07 12:00, 2016-04-04 00:00, 2018-04-25 00:00, and 2018-08-16 03:00. The intended timestamp of the malformed row is unresolved.
-- Rows are not strictly ordered chronologically.
+From the repository root:
 
-No timestamps have been corrected, duplicates resolved, or missing hours filled. Establish and document a cleaning strategy before creating sliding windows: 24 adjacent rows do not necessarily represent 24 consecutive hours. Write derived data separately from this raw snapshot and avoid using future observations to construct historical inputs.
+```bash
+python -B -m source.prepare --verify-only
+python -B -m source.prepare
+python -B main.py --check
+```
+
+The [preparation entry point](../source/prepare.py) reads the included raw observations and generates the hourly dataset and legal training windows. See the [project README](../README.md) for training commands. Raw files are checked before rebuilding and are never modified.

@@ -1,46 +1,31 @@
-# 新加坡历史每小时 PM2.5 数据
+# 原始数据
 
-English | [简体中文](README.zh-CN.md)
+[English](README.md) | 简体中文
 
-## 数据来源
+## 包含的来源
 
-- 数据文件：[NEA 原始 CSV](singapore-pm25-hourly-raw.csv)。保留下载内容，未清洗、排序或修改。
-- 发布机构：National Environment Agency（NEA）。
-- 官方页面：[Historical 1-hr PM2.5](https://data.gov.sg/datasets/d_6c0d5fc34838b12472475fdb73c0af29/view)。
-- 数据集 ID：`d_6c0d5fc34838b12472475fdb73c0af29`。
-- 下载日期：2026-10-21。
-- 许可：[Singapore Open Data Licence](https://data.gov.sg/open-data-licence)，使用时应注明来源。
-- 获取方式：请求[官方完整数据下载接口](https://api-open.data.gov.sg/v1/public/api/datasets/d_6c0d5fc34838b12472475fdb73c0af29/poll-download)，再下载返回的临时 CSV 链接。临时链接会过期，应重新请求接口获取。
+- [NEA五区域每小时PM2.5原始CSV](singapore-pm25-hourly-raw.csv)：109,584行，2014-04-01 01:00至2026-10-01 00:00，新加坡本地时间。首列是时间戳，其余为north/south/east/west/central，单位µg/m³。原始文件不修改。
+- [S107气象来源清单](weather_raw_s107/sources.json)：五个变量×2017–2024八年，共40份按East Coast Parkway站点S107筛选的观测CSV，用gzip无损压缩。保留观测时间、站点、数值、单位与发布时间，未做小时聚合或插补。
+- [SHA256校验清单](raw_sources.json)：PM CSV与40份气象观测的校验值，以及应生成的窗口数量。
 
-## 文件概况
+PM来源：[NEA Historical 1-hr PM2.5](https://data.gov.sg/datasets/d_6c0d5fc34838b12472475fdb73c0af29/view)。气象来源集合：[风速](https://data.gov.sg/collections/2280/view)、[风向](https://data.gov.sg/collections/2281/view)、[雨量](https://data.gov.sg/collections/2279/view)、[温度](https://data.gov.sg/collections/2246/view)、[湿度](https://data.gov.sg/collections/2278/view)。来源清单保留每份气象文件的dataset ID、网址、站点筛选条件、大小与哈希。数据由NEA发布、通过data.gov.sg取得，使用遵循[Singapore Open Data Licence](https://data.gov.sg/open-data-licence)。
 
-- 109,584 行数据，不含表头；6 列。
-- 文件大小：3,150,004 字节，约 3.15 MB。
-- 首条记录：2014-04-01 01:00；末条记录：2026-10-01 00:00。官方页面将覆盖期标为 2014 年 4 月至 2026 年 9 月。
-- SHA-256：`2fb76e1c4e4208e92f49670602e303c86e21eaa3704651633323e50f51015de4`。
+## 准备规则
 
-| 原始列名 | 含义 |
-| --- | --- |
-| `1hr_pm25` | 时间戳，通常为日/月/年 时:分；虽然列名像浓度，实际存储时间 |
-| `north` | 北部每小时 PM2.5 浓度 |
-| `south` | 南部每小时 PM2.5 浓度 |
-| `east` | 东部每小时 PM2.5 浓度 |
-| `west` | 西部每小时 PM2.5 浓度 |
-| `central` | 中部每小时 PM2.5 浓度 |
+[PM准备程序](../source/prepare_data.py)对时间格式异常、缺小时、重复小时或浓度无效的日期整天剔除，不修复时间戳、不插值、不填零。其临时划分在气象合并时弃用，只复用观测。
 
-浓度单位均为 µg/m³。这些值是区域级浓度，不是 PSI 或 AQI，也不是校园精确监测值。CSV 时间字符串本身不带时区，后续处理需明确记录时区约定。
+[气象准备程序](../source/prepare_weather_data.py)对特征时刻t使用[t−2h,t−1h)的历史观测，并检查发布时间不晚于t。温湿度每小时至少45个不同分钟且连续缺口不超过15分钟；风速/风向要求同样充分的配对分钟，knots转m/s后计算u/v。雨量须有12个五分钟时间片，修正恰好一秒的采样刻度抖动，缺测不当成无雨。
 
-## 下载后检查
+联合请求区间2017–2024。一天任一小时缺少PM或有效气象就整天剔除，剩余1,753天按floor(0.8N)、floor(0.9N)顺序切分，得到1,402/175/176天。输入可用分区边界前已知历史，六个目标必须全部属于自身分区；窗口不跨中断。24h→6h合法窗口数为25,668/3,331/3,818。
 
-五个浓度列均可转为有限数值，未发现空值、非数值占位符或负值。但时间轴有质量问题，建模前应处理：
+## 重建
 
-- CSV 第 17,617 行（包含表头计数）的时间写成 `2016-04-04 010:00:00`，不符合其余记录的日期格式。不能未经确认直接当成 10:00 或 00:00；需结合来源和相邻记录调查。
-- 排除这条格式异常记录后，109,583 行可按 `%d/%m/%Y %H:%M` 解析，含 3 条额外重复时间记录。重复时间为 2016-03-07 00:00、2018-04-24 00:00、2018-08-16 02:00；同一时间的浓度并不完全相同，不能视为完全相同的重复行直接删除。
-- 排除异常格式记录后，相对于连续小时网格缺少 4 个时间点：2016-03-07 12:00、2016-04-04 00:00、2018-04-25 00:00、2018-08-16 03:00。异常格式记录究竟对应哪个时间点仍待确认。
-- 数据并非严格按时间递增排列。
+在仓库根目录执行：
 
-本次仅核对原始数据，没有推断修正时间、去重或填补缺失小时。正式构造 Sliding Window 前，应先明确异常处理策略，检查连续小时网格；不能简单把相邻 24 行视为连续 24 小时。
+```bash
+python -B -m source.prepare --verify-only
+python -B -m source.prepare
+python -B main.py --check
+```
 
-## 建模起点
-
-可先使用 East 区域当前及过去 24 小时内的信息预测下一小时浓度，按时间划分训练、验证和测试集，并与 Persistence Baseline（下一小时等于当前值）比较。所有预处理和特征构造都应遵守预测时的信息可用性，避免利用未来数据。
+[准备入口](../source/prepare.py)读取仓库内的原始观测，生成小时数据和合法训练窗口。训练命令见[项目说明](../README.zh-CN.md)。重建前先核对原始文件校验值，全程不修改原始数据。
