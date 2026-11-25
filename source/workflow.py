@@ -22,16 +22,38 @@ ROOT = Path(__file__).resolve().parents[1]
 SEED = 42
 
 
-def discover_configs(seed=SEED, scopes=('east', 'five')):
+def discover_configs(seed=SEED, scopes=('east', 'five'), *, include_profiles=False):
     configs = {}
     for name, cls in discover_models().items():
-        for scope in scopes:
-            for variant, recipe in cls.variants().items():
+        for variant, recipe in cls.variants().items():
+            common = {
+                'algorithm': name,
+                'budgets': list(recipe['budgets']),
+                'training_cap': recipe['training_cap'],
+                'model_parameters': dict(recipe['parameters']),
+                'seed': seed,
+            }
+            if 'input_profile' in recipe:
+                if include_profiles:
+                    configs[f'{name}_{variant}'] = {
+                        **common,
+                        'input_profile': recipe['input_profile'],
+                        'expanded_training': recipe.get('expanded_training', True),
+                        'shuffle': recipe.get('shuffle', True),
+                    }
+                continue
+            for scope in scopes:
                 key = f'{name}_{scope}_{variant}'
-                configs[key] = {'algorithm': name, 'scope': scope, 'complexity': variant,
-                    'budgets': list(recipe['budgets']), 'training_cap': recipe['training_cap'],
-                    'model_parameters': dict(recipe['parameters']), 'input_schema': input_schema(scope),
-                    'target_mode': 'six_absolute_levels', 'forecast_strategy': 'direct', 'seed': seed}
+                configs[key] = {
+                    **common,
+                    'budgets': list(common['budgets']),
+                    'model_parameters': dict(common['model_parameters']),
+                    'scope': scope,
+                    'complexity': variant,
+                    'input_schema': input_schema(scope),
+                    'target_mode': 'six_absolute_levels',
+                    'forecast_strategy': 'direct',
+                }
     return configs
 
 
@@ -235,13 +257,25 @@ def main():
         parser.error(f'Unknown models: {set(args.models) - set(models)}')
     configs = {k: c for k, c in discover_configs(args.seed, tuple(dict.fromkeys(args.scopes))).items()
                if not args.models or c['algorithm'] in args.models}
+    legacy_models = {c['algorithm'] for c in configs.values()}
+    if args.models:
+        profile_models = set(args.models) - legacy_models
+        if profile_models:
+            names = ', '.join(sorted(profile_models))
+            parser.error(f'Use the training notebook for models with input profiles: {names}')
     if args.config and args.config not in configs:
         parser.error(f'Unknown candidate: {args.config}')
     if args.config and args.stage == 'all':
         parser.error('--config is for individual validation/test stages; use --models for a complete run')
     if args.list_models or args.dry_run:
-        print(json.dumps({'models': {n: f'{c.__module__}.{c.__name__}' for n, c in models.items()},
-            'candidates': configs, 'stages': ['validation_all', 'lock', 'test_all', 'export_and_plot']}, indent=2))
+        print(json.dumps({
+            'models': {
+                name: f'{cls.__module__}.{cls.__name__}'
+                for name, cls in models.items() if name in legacy_models
+            },
+            'candidates': configs,
+            'stages': ['validation_all', 'lock', 'test_all', 'export_and_plot'],
+        }, indent=2))
         return
     from source.east_weather_data import load_windows
     args.project_dir, args.output_dir = args.project_dir.resolve(), args.output_dir.resolve()

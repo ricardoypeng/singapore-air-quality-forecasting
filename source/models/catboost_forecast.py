@@ -28,6 +28,19 @@ class CatBoostForecast(ForecastModel):
     """
 
     name = 'catboost'
+    allow_missing = False
+
+    def _valid_inputs(self, values):
+        return not np.isinf(values).any() if self.allow_missing else np.isfinite(values).all()
+
+    def _fit_arrays(self, x, y):
+        return x, y
+
+    def _predict_array(self, x):
+        return x
+
+    def _decode(self, predicted):
+        return predicted
 
     @classmethod
     def variants(cls):
@@ -79,8 +92,8 @@ class CatBoostForecast(ForecastModel):
         target = np.asarray(y, dtype=np.float64)
         if values.ndim != 2 or not len(values) or target.shape != (len(values), 6):
             raise ValueError("Expected nonempty X and six direct target columns")
-        if not np.isfinite(values).all() or not np.isfinite(target).all():
-            raise ValueError("CatBoost experiment expects finite inputs and labels")
+        if not self._valid_inputs(values) or not np.isfinite(target).all():
+            raise ValueError("Invalid CatBoost predictors or labels")
         if not isinstance(budget, int) or budget < 1:
             raise ValueError("Training capacity must be a positive integer")
         key = hashlib.sha256(values.tobytes() + target.tobytes()).hexdigest()
@@ -97,7 +110,7 @@ class CatBoostForecast(ForecastModel):
         defaults.update(self.parameters)
         self.estimator = CatBoostRegressor(iterations=budget, thread_count=self.threads,
             random_seed=self.seed, verbose=False, **defaults)
-        self.estimator.fit(values, target)
+        self.estimator.fit(*self._fit_arrays(values, target))
         actual = int(self.estimator.tree_count_)
         if actual != budget:
             raise RuntimeError("Fitted CatBoost tree count differs from declared capacity")
@@ -121,14 +134,15 @@ class CatBoostForecast(ForecastModel):
         if self.estimator is None:
             raise ValueError("Fit the model before predicting")
         values = np.asarray(x, dtype=np.float64)
-        if values.ndim != 2 or values.shape[1] != self.n_features_in_ or not np.isfinite(values).all():
-            raise ValueError("Expected finite inputs with the fitted feature width")
+        if values.ndim != 2 or values.shape[1] != self.n_features_in_ or not self._valid_inputs(values):
+            raise ValueError("Invalid predictors or feature width")
         end = self.budget if budget is None else budget
         if not isinstance(end, int) or not 1 <= end <= int(self.estimator.tree_count_):
             raise ValueError("Prediction prefix must be within retained tree count")
         predicted = np.asarray(self.estimator.predict(
-            values, ntree_start=0, ntree_end=end, thread_count=self.threads,
+            self._predict_array(values), ntree_start=0, ntree_end=end, thread_count=self.threads,
         ), dtype=np.float64)
+        predicted = self._decode(predicted)
         if predicted.shape != (len(values), 6) or not np.isfinite(predicted).all():
             raise ValueError("Expected six finite native CatBoost outputs per row")
         return predicted
