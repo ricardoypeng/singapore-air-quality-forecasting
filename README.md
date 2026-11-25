@@ -2,7 +2,7 @@
 
 English | [简体中文](README.zh-CN.md)
 
-Predict East Singapore PM2.5 for the next 1–6 hours directly from the previous 24 hours. Active models are HGB (six independent horizon heads) and CatBoost (joint six-output trees), without manual routing or recursive feedback. East inputs contain 186 columns; five-region inputs contain 282.
+Predict East Singapore PM2.5 for the next 1–6 hours directly from the previous 24 hours. The command-line workflow supports HGB (six independent horizon heads) and CatBoost (joint six-output trees), without manual routing or recursive feedback. East inputs contain 186 columns; five-region inputs contain 282.
 
 ## Repository contents
 
@@ -31,7 +31,32 @@ python -B main.py
 
 Preparation verifies all 41 raw observation checksums, rebuilds hourly weather/PM inputs and chronological splits, and checks the expected 25,668 / 3,331 / 3,818 legal windows. It does not fit models. Do not replace the established whole-day removal policy with timestamp repair when reproducing these experiments.
 
-The runner scans the model package and completes every discovered candidate's validation stage before any test stage. The two current classes declare eight candidates; there is no fixed candidate count in the trainer. Budgets are selected by five-fold chronological training CV with six-hour target purging; the independent validation set chooses the model. Test does not change selection. Use `python -B main.py --dry-run` to inspect discovered classes, candidates and execution stages without training. The older `python -B -m source.reproduce` entry point calls the same runner. Completed experiment reports are not overwritten; use a new `--output-dir` for a separate run.
+The command-line runner discovers models for its East and five-region inputs and completes their validation before testing. HGB and CatBoost declare eight candidates for this workflow; there is no fixed candidate count in the trainer. Budgets are selected by five-fold chronological training CV with six-hour target purging; the independent validation set chooses the model. Test does not change selection. Use `python -B main.py --dry-run` to inspect discovered classes, candidates and execution stages without training. The older `python -B -m source.reproduce` entry point calls the same runner. Completed experiment reports are not overwritten; use a new `--output-dir` for a separate run.
+
+## Training and test notebooks
+
+1. Install the dependencies and run the raw-data preparation above. Then prepare
+   the aligned input profiles.
+
+   ```bash
+   python -B -m source.prepare_recent_weather
+   python -B -m source.build_experiment_matrices
+   ```
+
+2. Run the [training notebook](model_training.ipynb) to fit the discovered
+   model configurations on the training split, score them on validation, and
+   save the checkpoints. The notebook chooses each prediction budget on the
+   validation split and follows each model's declared final training capacity.
+   The original command-line workflow uses chronological CV.
+3. Run the [test comparison notebook](model_test_comparison.ipynb). It loads the
+   checkpoints, draws 512 of the 3,818 reserved test origins without replacement
+   using seed 42, and runs inference on those same origins for every model.
+   Set the sample count to 3,818 to evaluate the entire test split.
+
+Both notebooks use the same [model contract](source/models/README.md). Use the
+same run directory in both. Give the training notebook a fresh directory if
+you want to train again. The test notebook checks the matrix, checkpoint files,
+and model and feature code against the training manifest.
 
 ## Reference behaviour
 
